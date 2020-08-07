@@ -1,7 +1,10 @@
 .Palette {
-  height: 98vh;
-  width: 98vw;
+  height: 100%;
+  width: 100%;
 }
 .Palette-colors {
-  height: 90%;
+  display: flex;
+  flex-flow: wrap;
+  height: 94vh;
+  margin: 0 auto;
 }

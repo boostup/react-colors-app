@@ -8,7 +8,6 @@ import Slider from "rc-slider";
 import "rc-slider/assets/index.css";
 //This import must remain after the "rc-slider/assets/index.css" import (this is to avoid using !important in our CSS)
 import "./Navbar.css";
-import { Icon } from "@material-ui/core";
 
 function Navbar(props) {
   const { level, changeLevel, changeColorFormat } = props;
