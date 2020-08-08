@@ -1,14 +1,12 @@
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import { CopyToClipboard } from "react-copy-to-clipboard";
 import "./ColorBox.css";
 
 function ColorBox(props) {
-  const { name, background } = props;
+  const { name, background, moreURL } = props;
   const [copied, setCopied] = useState(false);
-
-  const onCopyState = () => {
-    setCopied(true);
-  };
+  const onCopyState = () => setCopied(true);
 
   useEffect(() => {
     return () => setTimeout(() => setCopied(false), 1500);
@@ -31,7 +29,9 @@ function ColorBox(props) {
           </div>
           <button className="ColorBox_copy-button">Copy</button>
         </div>
-        <span className="ColorBox_see-more">More</span>
+        <Link to={moreURL} onClick={(e) => e.stopPropagation()}>
+          <span className="ColorBox_see-more">More</span>
+        </Link>
       </div>
     </CopyToClipboard>
   );

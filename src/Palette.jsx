@@ -8,11 +8,12 @@ function Palette(props) {
   const [colorFormat, setColorFormat] = useState("hex");
   const changeLevel = (level) => setLevel(level);
   const changeColorFormat = (value) => setColorFormat(value);
-  const { colors, paletteName, emoji } = props.palette;
+  const { colors, paletteName, emoji, id } = props.palette;
 
   const colorBoxes = colors[level].map((color, i) => (
     <ColorBox
       key={color.name}
+      moreURL={`/palette/${id}/${color.id}`}
       background={color[colorFormat]}
       name={color.name}
     />

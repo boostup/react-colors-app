@@ -1,10 +1,10 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import { withStyles } from "@material-ui/styles";
 import MiniPalette from "./MiniPalette";
 
 function PaletteList(props) {
-  const { palettes, classes } = props;
+  const { palettes, classes, history } = props;
+  const goToPalette = (id) => history.push(`/palette/${id}`);
 
   return (
     <div className={classes.root}>
@@ -14,9 +14,10 @@ function PaletteList(props) {
         </nav>
         <div className={classes.palettes}>
           {palettes.map((palette) => (
-            <Link key={palette.paletteName} to={`/palette/${palette.id}`}>
-              <MiniPalette {...palette} />
-            </Link>
+            <MiniPalette
+              {...palette}
+              onPaletteClick={() => goToPalette(palette.id)}
+            />
           ))}
         </div>
       </div>
