@@ -10,8 +10,11 @@ function ColorBox(props) {
     setCopied(true);
   };
 
+  let timer = null;
+
   useEffect(() => {
-    setTimeout(() => setCopied(false), 1500);
+    clearTimeout(timer);
+    return () => (timer = setTimeout(() => setCopied(false), 1500));
   }, [copied]);
 
   return (
