@@ -16,6 +16,7 @@ function Palette(props) {
       moreURL={`/palette/${id}/${color.id}`}
       background={color[colorFormat]}
       name={color.name}
+      showMoreBtn
     />
   ));
 
