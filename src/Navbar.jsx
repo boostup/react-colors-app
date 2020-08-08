@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import Select from "@material-ui/core/Select";
 import MenuItem from "@material-ui/core/MenuItem";
 import Snackbar from "@material-ui/core/Snackbar";
@@ -14,20 +15,18 @@ function Navbar(props) {
   const [colorFormat, setColorFormat] = useState("hex");
   const [snackbarOpen, setSnackbarOpen] = useState(false);
 
-  function onColorFormatChange(e) {
+  const onColorFormatChange = (e) => {
     setColorFormat(e.target.value);
     changeColorFormat(e.target.value);
     setSnackbarOpen(true);
-  }
+  };
 
-  function closeSnackbar() {
-    setSnackbarOpen(false);
-  }
+  const closeSnackbar = () => setSnackbarOpen(false);
 
   return (
     <header className="Navbar">
       <div className="logo">
-        <a href="#">react colors</a>
+        <Link to="/">react colors</Link>
       </div>
       <div className="slider-container">
         <span>Level: {level}</span>
