@@ -6,21 +6,17 @@ import ColorBox from "./ColorBox";
 function Palette(props) {
   const [level, setLevel] = useState(500);
   const [colorFormat, setColorFormat] = useState("hex");
-  const colorBoxes = props.palette.colors[level].map((color, i) => (
+  const changeLevel = (level) => setLevel(level);
+  const changeColorFormat = (value) => setColorFormat(value);
+  const { colors, paletteName, emoji } = props.palette;
+
+  const colorBoxes = colors[level].map((color, i) => (
     <ColorBox
-      key={`${color.hex} - ${i}`}
+      key={color.name}
       background={color[colorFormat]}
       name={color.name}
     />
   ));
-
-  function changeLevel(level) {
-    setLevel(level);
-  }
-
-  function changeColorFormat(value) {
-    setColorFormat(value);
-  }
 
   return (
     <div className="Palette">
@@ -30,6 +26,9 @@ function Palette(props) {
         changeColorFormat={changeColorFormat}
       />
       <div className="Palette-colors">{colorBoxes}</div>
+      <footer className="Palette-footer">
+        {paletteName} {emoji}
+      </footer>
     </div>
   );
 }
