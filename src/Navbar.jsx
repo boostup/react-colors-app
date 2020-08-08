@@ -11,7 +11,7 @@ import "rc-slider/assets/index.css";
 import "./Navbar.css";
 
 function Navbar(props) {
-  const { level, changeLevel, changeColorFormat } = props;
+  const { showLevelSlider, level, changeLevel, changeColorFormat } = props;
   const [colorFormat, setColorFormat] = useState("hex");
   const [snackbarOpen, setSnackbarOpen] = useState(false);
 
@@ -28,18 +28,20 @@ function Navbar(props) {
       <div className="logo">
         <Link to="/">react colors</Link>
       </div>
-      <div className="slider-container">
-        <span>Level: {level}</span>
-        <div className="slider">
-          <Slider
-            defaultValue={level}
-            min={100}
-            max={900}
-            step={100}
-            onAfterChange={changeLevel}
-          />
+      {showLevelSlider && (
+        <div className="slider-container">
+          <span>Level: {level}</span>
+          <div className="slider">
+            <Slider
+              defaultValue={level}
+              min={100}
+              max={900}
+              step={100}
+              onAfterChange={changeLevel}
+            />
+          </div>
         </div>
-      </div>
+      )}
       <div className="select-container">
         <Select value={colorFormat} onChange={onColorFormatChange}>
           <MenuItem value="hex">Hex #ffffff</MenuItem>

@@ -7,11 +7,3 @@
   flex-flow: wrap;
   height: 90vh;
 }
-
-.Palette-footer {
-  height: 4vh;
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-  padding: 0 1rem;
-}

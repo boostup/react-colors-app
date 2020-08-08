@@ -7,7 +7,12 @@
   margin-bottom: -3.5px;
 }
 
-.ColorBox_copy-button {
+.ShadesPalette .ColorBox {
+  height: 50%;
+}
+
+.ColorBox_copy-button,
+.ShadesPalette .go-back-button {
   width: 100px;
   height: 30px;
   position: absolute;
@@ -25,6 +30,14 @@
   text-transform: uppercase;
   border: none;
   opacity: 0;
+}
+
+.ShadesPalette .ColorBox.go-back {
+  background-color: black;
+}
+
+.ShadesPalette .ColorBox.go-back .go-back-button {
+  opacity: 1;
 }
 
 .ColorBox:hover .ColorBox_copy-button {

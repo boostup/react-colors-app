@@ -1,14 +1,15 @@
 import React, { useState } from "react";
 import Navbar from "./Navbar";
-import "./Palette.css";
 import ColorBox from "./ColorBox";
+import PaletteFooter from "./PaletteFooter";
+import "./Palette.css";
 
 function Palette(props) {
-  const [level, setLevel] = useState(500);
-  const [colorFormat, setColorFormat] = useState("hex");
-  const changeLevel = (level) => setLevel(level);
-  const changeColorFormat = (value) => setColorFormat(value);
   const { colors, paletteName, emoji, id } = props.palette;
+  const [level, setLevel] = useState(500);
+  const changeLevel = (level) => setLevel(level);
+  const [colorFormat, setColorFormat] = useState("hex");
+  const changeColorFormat = (value) => setColorFormat(value);
 
   const colorBoxes = colors[level].map((color, i) => (
     <ColorBox
@@ -23,14 +24,13 @@ function Palette(props) {
   return (
     <div className="Palette">
       <Navbar
+        showLevelSlider
         level={level}
         changeLevel={changeLevel}
         changeColorFormat={changeColorFormat}
       />
       <div className="Palette-colors">{colorBoxes}</div>
-      <footer className="Palette-footer">
-        {paletteName} {emoji}
-      </footer>
+      <PaletteFooter paletteName={paletteName} emoji={emoji} />
     </div>
   );
 }

@@ -5,7 +5,7 @@ import { generatePalette } from "./colorHelpers";
 import "./App.css";
 import { Route, Switch } from "react-router-dom";
 import PaletteList from "./PaletteList";
-import SingleColorPalette from "./SingleColorPalette";
+import ShadesPalette from "./ShadesPalette";
 
 function App() {
   const findPalette = (id) => seedPalettes.find((palette) => palette.id === id);
@@ -32,7 +32,7 @@ function App() {
         exact
         path="/palette/:paletteId/:colorId"
         render={(routeProps) => (
-          <SingleColorPalette
+          <ShadesPalette
             colorId={routeProps.match.params.colorId}
             palette={generatePalette(
               findPalette(routeProps.match.params.paletteId)
@@ -41,9 +41,6 @@ function App() {
         )}
       />
     </Switch>
-    // <div className="App">
-    //   <Palette palette={generatePalette(seedPalettes[4])} />
-    // </div>
   );
 }
 
