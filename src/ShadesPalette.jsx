@@ -4,6 +4,7 @@ import { withStyles } from "@material-ui/styles";
 import Navbar from "./Navbar";
 import ColorBox from "./ColorBox";
 import PaletteFooter from "./PaletteFooter";
+import styles from "./styles/Palette";
 
 function ShadesPalette(props) {
   const { colorId, palette, classes } = props;
@@ -44,45 +45,5 @@ function ShadesPalette(props) {
     </div>
   );
 }
-
-const styles = {
-  Palette: {
-    height: "100%",
-    width: "100%",
-  },
-  PaletteColors: {
-    display: "flex",
-    flexFlow: "wrap",
-    height: "90vh",
-  },
-  goBackContainer: {
-    backgroundColor: "black",
-    height: "50%",
-    width: "20%",
-    display: "inline-block",
-    position: "relative",
-    cursor: "pointer",
-    marginBottom: "-3.5px",
-  },
-  goBackButton: {
-    width: "100px",
-    height: "30px",
-    position: "absolute",
-    display: "inline-block",
-    top: "50%",
-    left: "50%",
-    marginLeft: "-50px",
-    marginTop: "-15px",
-    textAlign: "center",
-    outline: "none",
-    background: "rgba(255, 255, 255, 0.3)",
-    fontSize: "1rem",
-    lineHeight: "30px",
-    color: "white",
-    textTransform: "uppercase",
-    border: "none",
-    opacity: "1",
-  },
-};
 
 export default withStyles(styles)(ShadesPalette);

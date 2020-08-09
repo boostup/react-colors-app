@@ -5,13 +5,18 @@ import MenuItem from "@material-ui/core/MenuItem";
 import Snackbar from "@material-ui/core/Snackbar";
 import IconButton from "@material-ui/core/IconButton";
 import CloseIcon from "@material-ui/icons/Close";
+import { withStyles } from "@material-ui/styles";
+import styles from "./styles/Navbar";
 import Slider from "rc-slider";
 import "rc-slider/assets/index.css";
-//This import must remain after the "rc-slider/assets/index.css" import (this is to avoid using !important in our CSS)
-import "./Navbar.css";
 
-function Navbar(props) {
-  const { showLevelSlider, level, changeLevel, changeColorFormat } = props;
+function Navbar({
+  showLevelSlider,
+  level,
+  changeLevel,
+  changeColorFormat,
+  classes,
+}) {
   const [colorFormat, setColorFormat] = useState("hex");
   const [snackbarOpen, setSnackbarOpen] = useState(false);
 
@@ -24,14 +29,14 @@ function Navbar(props) {
   const closeSnackbar = () => setSnackbarOpen(false);
 
   return (
-    <header className="Navbar">
-      <div className="logo">
+    <header className={classes.Navbar}>
+      <div className={classes.logo}>
         <Link to="/">react colors</Link>
       </div>
       {showLevelSlider && (
-        <div className="slider-container">
+        <div>
           <span>Level: {level}</span>
-          <div className="slider">
+          <div className={classes.slider}>
             <Slider
               defaultValue={level}
               min={100}
@@ -42,7 +47,7 @@ function Navbar(props) {
           </div>
         </div>
       )}
-      <div className="select-container">
+      <div className={classes.selectContainer}>
         <Select value={colorFormat} onChange={onColorFormatChange}>
           <MenuItem value="hex">Hex #ffffff</MenuItem>
           <MenuItem value="rgb">rgb(255,255,255)</MenuItem>
@@ -77,4 +82,4 @@ function Navbar(props) {
   );
 }
 
-export default Navbar;
+export default withStyles(styles)(Navbar);

@@ -3,6 +3,7 @@ import { withStyles } from "@material-ui/styles";
 import Navbar from "./Navbar";
 import ColorBox from "./ColorBox";
 import PaletteFooter from "./PaletteFooter";
+import styles from "./styles/Palette";
 
 function Palette(props) {
   const { classes } = props;
@@ -35,17 +36,5 @@ function Palette(props) {
     </div>
   );
 }
-
-const styles = {
-  Palette: {
-    height: "100%",
-    width: "100%",
-  },
-  PaletteColors: {
-    display: "flex",
-    flexFlow: "wrap",
-    height: "90vh",
-  },
-};
 
 export default withStyles(styles)(Palette);
