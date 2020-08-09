@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import { withStyles } from "@material-ui/styles";
 import { CopyToClipboard } from "react-copy-to-clipboard";
 import chroma from "chroma-js";
-import { withStyles } from "@material-ui/styles";
-import "./ColorBox.css";
 
 function ColorBox({ classes, name, background, moreURL, showMoreBtn }) {
   const [copied, setCopied] = useState(false);
@@ -45,20 +44,18 @@ function ColorBox({ classes, name, background, moreURL, showMoreBtn }) {
   );
 }
 
-const ColorBoxClass = {
-  width: "20%",
-  height: (props) => (props.doubleHeight ? "50%" : "25%"),
-  display: "inline-block",
-  position: "relative",
-  cursor: "pointer",
-  marginBottom: "-3.5px",
-  "&:hover button": {
-    opacity: 1,
-  },
-};
-
 const styles = {
-  ColorBox: ColorBoxClass,
+  ColorBox: {
+    width: "20%",
+    height: (props) => (props.doubleHeight ? "50%" : "25%"),
+    display: "inline-block",
+    position: "relative",
+    cursor: "pointer",
+    marginBottom: "-3.5px",
+    "&:hover button": {
+      opacity: 1,
+    },
+  },
   colorName: {
     color: (props) =>
       chroma(props.background).luminance() <= 0.08 ? "white" : "black",

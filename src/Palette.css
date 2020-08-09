@@ -1,9 +1,0 @@
-.Palette {
-  height: 100%;
-  width: 100%;
-}
-.Palette-colors {
-  display: flex;
-  flex-flow: wrap;
-  height: 90vh;
-}
