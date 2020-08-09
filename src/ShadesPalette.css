@@ -1,1 +1,37 @@
+.ShadesPalette .ColorBox {
+  width: 20%;
+  height: 25%;
+  display: inline-block;
+  position: relative;
+  cursor: pointer;
+  margin-bottom: -3.5px;
+}
 
+.ShadesPalette .go-back .button {
+  width: 100px;
+  height: 30px;
+  position: absolute;
+  display: inline-block;
+  top: 50%;
+  left: 50%;
+  margin-left: -50px;
+  margin-top: -15px;
+  text-align: center;
+  outline: none;
+  background: rgba(255, 255, 255, 0.3);
+  font-size: 1rem;
+  line-height: 30px;
+  color: white;
+  text-transform: uppercase;
+  border: none;
+  opacity: 0;
+}
+
+.ShadesPalette .ColorBox.go-back {
+  background-color: black;
+  height: 50%;
+}
+
+.ShadesPalette .ColorBox.go-back .button {
+  opacity: 1;
+}

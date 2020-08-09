@@ -22,10 +22,11 @@ function ShadesPalette(props) {
   const colorShades = getShades();
   const colorBoxes = colorShades.map((color) => (
     <ColorBox
-      key={color.id}
+      key={color.name}
       name={color.name}
       background={color[colorFormat]}
       showMoreBtn={false}
+      doubleHeight
     />
   ));
   return (
@@ -35,7 +36,7 @@ function ShadesPalette(props) {
         {colorBoxes}
         <div className="go-back ColorBox">
           <Link to={`/palette/${palette.id}`}>
-            <span className="go-back-button">Go Back</span>
+            <span className="button">Go Back</span>
           </Link>
         </div>
       </div>
