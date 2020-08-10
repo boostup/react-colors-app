@@ -16,6 +16,7 @@ export default {
     width: "100%",
     display: "flex",
     flexWrap: "wrap",
+    alignContent: "flex-start",
   },
   title: {
     display: "flex",

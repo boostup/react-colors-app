@@ -6,6 +6,7 @@ export default {
   PaletteColors: {
     display: "flex",
     flexFlow: "wrap",
+    alignContent: "flex-start",
     height: "90vh",
   },
   goBackContainer: {
