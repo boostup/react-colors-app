@@ -49,6 +49,9 @@ function NewPaletteFormNav({
         "& > div": {
           height: "-webkit-fill-available",
         },
+        "& > button": {
+          marginLeft: theme.spacing(1),
+        },
       },
     },
   }));
