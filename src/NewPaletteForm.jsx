@@ -78,24 +78,18 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function NewPaletteForm({ savePalette, palettes }) {
+export default function NewPaletteForm({ savePalette, palettes, maxColors }) {
   let history = useHistory();
   const classes = useStyles();
   const theme = useTheme();
+
   const [open, setOpen] = React.useState(true);
   const [currentColor, setCurrentColor] = React.useState("salmon");
-  const [colors, setColors] = React.useState([
-    { color: "lightblue", name: "blue" },
-    { color: "yellow", name: "yellow" },
-    { color: "orange", name: "orange" },
-    { color: "maroon", name: "maroon" },
-    { color: "purple", name: "purple" },
-    { color: "white", name: "white" },
-    { color: "lavender", name: "lavender" },
-    { color: "red", name: "red" },
-  ]);
   const [newColorName, setNewColorName] = React.useState("");
+  const [colors, setColors] = React.useState(palettes[0].colors);
   const [newPaletteName, setNewPaletteName] = React.useState("");
+
+  const paletteIsFull = colors.length >= maxColors;
 
   const handleDrawerOpen = () => {
     setOpen(true);
@@ -136,8 +130,24 @@ export default function NewPaletteForm({ savePalette, palettes }) {
     history.push("/");
   };
 
+  const clearColors = () => setColors([]);
+
+  const addRandomColor = () => {
+    const allColors = palettes.map((p) => p.colors).flat();
+    var rand = Math.floor(Math.random() * allColors.length);
+    const randColor = allColors[rand];
+    if (!isColorUnique(randColor.name)) return addRandomColor();
+    setColors([...colors, randColor]);
+  };
+
+  function isColorUnique(colorName) {
+    return colors.every(
+      ({ name }) => name.toLowerCase() !== colorName.toLowerCase()
+    );
+  }
+
   ValidatorForm.addValidationRule("isColorNameUnique", (value) =>
-    colors.every(({ name }) => name.toLowerCase() !== value.toLowerCase())
+    isColorUnique(value)
   );
 
   ValidatorForm.addValidationRule("isColorUnique", () =>
@@ -156,6 +166,7 @@ export default function NewPaletteForm({ savePalette, palettes }) {
       <CssBaseline />
       <AppBar
         position="fixed"
+        color="default"
         className={clsx(classes.appBar, {
           [classes.appBarShift]: open,
         })}
@@ -184,8 +195,11 @@ export default function NewPaletteForm({ savePalette, palettes }) {
                 "Enter a unique palette name.",
               ]}
             />
-            <Button type="submit" variant="contained" color="secondary">
+            <Button type="submit" variant="contained" color="primary">
               Save
+            </Button>
+            <Button onClick={(e) => history.push("/")} color="secondary">
+              Cancel
             </Button>
           </ValidatorForm>
         </Toolbar>
@@ -207,10 +221,15 @@ export default function NewPaletteForm({ savePalette, palettes }) {
         <Divider />
         <Typography variant="h4">Design Your Palette</Typography>
         <div>
-          <Button variant="contained" color="secondary">
+          <Button variant="contained" color="secondary" onClick={clearColors}>
             Clear Palette
           </Button>
-          <Button variant="contained" color="primary">
+          <Button
+            variant="contained"
+            color="primary"
+            onClick={addRandomColor}
+            disabled={paletteIsFull}
+          >
             Random Color
           </Button>
         </div>
@@ -233,9 +252,16 @@ export default function NewPaletteForm({ savePalette, palettes }) {
             type="submit"
             variant="contained"
             color="primary"
-            style={{ backgroundColor: currentColor }}
+            style={
+              paletteIsFull
+                ? {}
+                : {
+                    backgroundColor: currentColor,
+                  }
+            }
+            disabled={paletteIsFull}
           >
-            Add Color
+            {paletteIsFull ? "Palette full" : "Add Color"}
           </Button>
         </ValidatorForm>
       </Drawer>
@@ -256,3 +282,7 @@ export default function NewPaletteForm({ savePalette, palettes }) {
     </div>
   );
 }
+
+NewPaletteForm.defaultProps = {
+  maxColors: 20,
+};
