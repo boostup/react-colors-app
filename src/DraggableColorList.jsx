@@ -4,7 +4,14 @@ import DraggableColorBox from "./DraggableColorBox";
 
 function DraggableColorList({ colors, onRemoveColor }) {
   return (
-    <div style={{ height: "100%", display: "flex", flexWrap: "wrap" }}>
+    <div
+      style={{
+        height: "calc(100vh - 64px)",
+        display: "flex",
+        flexWrap: "wrap",
+        alignContent: "flex-start",
+      }}
+    >
       {colors.map((color, i) => (
         <DraggableColorBox
           key={color.name}

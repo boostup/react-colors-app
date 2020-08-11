@@ -1,9 +1,16 @@
 import React, { useState } from "react";
 import { ChromePicker } from "react-color";
-import { Button } from "@material-ui/core";
 import { ValidatorForm, TextValidator } from "react-material-ui-form-validator";
+import { Button } from "@material-ui/core";
+import { withStyles } from "@material-ui/styles";
 
-function ColorPickerForm({ colors, setColors, isColorUnique, paletteIsFull }) {
+function ColorPickerForm({
+  classes,
+  colors,
+  setColors,
+  isColorUnique,
+  paletteIsFull,
+}) {
   const [currentColor, setCurrentColor] = useState("salmon");
   const [newColorName, setNewColorName] = useState("");
   const addNewColor = () => {
@@ -24,10 +31,11 @@ function ColorPickerForm({ colors, setColors, isColorUnique, paletteIsFull }) {
   return (
     <>
       <ChromePicker
+        className={classes.colorPicker}
         color={currentColor}
         onChangeComplete={(newColor) => setCurrentColor(newColor.hex)}
       />
-      <ValidatorForm onSubmit={addNewColor}>
+      <ValidatorForm onSubmit={addNewColor} className={classes.form}>
         <TextValidator
           value={newColorName}
           onChange={onNewColorName}
@@ -37,6 +45,8 @@ function ColorPickerForm({ colors, setColors, isColorUnique, paletteIsFull }) {
             "Enter a unique color name.",
             "Enter a unique color.",
           ]}
+          placeholder="Color Name"
+          variant="filled"
         />
         <Button
           type="submit"
@@ -50,6 +60,7 @@ function ColorPickerForm({ colors, setColors, isColorUnique, paletteIsFull }) {
                 }
           }
           disabled={paletteIsFull}
+          className={classes.addColorBtn}
         >
           {paletteIsFull ? "Palette full" : "Add Color"}
         </Button>
@@ -58,4 +69,24 @@ function ColorPickerForm({ colors, setColors, isColorUnique, paletteIsFull }) {
   );
 }
 
-export default ColorPickerForm;
+const styles = {
+  form: {
+    width: "100%",
+    "& .MuiTextField-root": {
+      width: "100%",
+      marginTop: "1rem",
+    },
+  },
+  colorPicker: {
+    width: "100% !important",
+    marginTop: "1.5rem",
+  },
+  addColorBtn: {
+    width: "100%",
+    padding: "1rem",
+    marginTop: "2rem",
+    fontSize: "2rem",
+  },
+};
+
+export default withStyles(styles)(ColorPickerForm);
