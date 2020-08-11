@@ -9,7 +9,7 @@ import ShadesPalette from "./ShadesPalette";
 import NewPaletteForm from "./NewPaletteForm";
 
 function App() {
-  const [palettes, setPalettes] = useState(seedPalettes.slice(3));
+  const [palettes, setPalettes] = useState(seedPalettes.slice(6));
 
   const findPalette = (id) => palettes.find((palette) => palette.id === id);
 

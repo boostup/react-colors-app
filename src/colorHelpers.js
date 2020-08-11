@@ -17,7 +17,7 @@ function generatePalette(starterPalette) {
     for (let i in scale) {
       newPalette.colors[levels[i]].push({
         name: `${color.name} ${levels[i]}`,
-        id: color.name.toLowerCase().replace(/ /g, "-"),
+        id: formatForId(color.name),
         hex: scale[i],
         rgb: chroma(scale[i]).css(),
         rgba: chroma(scale[i])
@@ -39,4 +39,8 @@ function getScale(hexColor, numberOfColors) {
   return chroma.scale(getRange(hexColor)).mode("lab").colors(numberOfColors);
 }
 
-export { generatePalette };
+function formatForId(paletteName) {
+  return paletteName.toLowerCase().replace(/ /g, "-");
+}
+
+export { generatePalette, formatForId };

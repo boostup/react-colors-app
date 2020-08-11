@@ -65,7 +65,7 @@ function Navbar({
           </span>
         }
         ContentProps={{
-          "aria-descibedby": "message-id",
+          "aria-describedby": "message-id",
         }}
         action={[
           <IconButton

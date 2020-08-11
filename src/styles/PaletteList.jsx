@@ -12,7 +12,7 @@ export default {
     backgroundSize: "cover",
   },
   container: {
-    width: "50%",
+    width: "90%",
     display: "flex",
     alignItems: "flex-start",
     flexDirection: "column",

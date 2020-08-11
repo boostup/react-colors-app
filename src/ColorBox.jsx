@@ -6,11 +6,16 @@ import styles from "./styles/ColorBox";
 
 function ColorBox({ classes, name, background, moreURL, showMoreBtn }) {
   const [copied, setCopied] = useState(false);
-  const onCopyState = () => setCopied(true);
 
+  let copiedMessageTimeoutId = null;
+
+  const onCopyState = () => {
+    setCopied(true);
+    copiedMessageTimeoutId = setTimeout(() => setCopied(false), 1500);
+  };
   useEffect(() => {
-    return () => setTimeout(() => setCopied(false), 1500);
-  }, [copied]);
+    return clearTimeout(copiedMessageTimeoutId);
+  }, [copiedMessageTimeoutId]);
 
   return (
     <CopyToClipboard text={background} onCopy={onCopyState}>
