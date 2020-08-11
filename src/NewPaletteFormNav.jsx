@@ -10,15 +10,51 @@ import MenuIcon from "@material-ui/icons/Menu";
 import { Button } from "@material-ui/core";
 import { ValidatorForm, TextValidator } from "react-material-ui-form-validator";
 import { formatForId } from "./colorHelpers";
+import { makeStyles } from "@material-ui/core/styles";
 
 function NewPaletteFormNav({
-  classes,
   open,
   setOpen,
   savePalette,
   colors,
   palettes,
+  drawerWidth,
 }) {
+  const useStyles = makeStyles((theme) => ({
+    root: {},
+    appBar: {
+      transition: theme.transitions.create(["margin", "width"], {
+        easing: theme.transitions.easing.sharp,
+        duration: theme.transitions.duration.leavingScreen,
+      }),
+      flexDirection: "row",
+      justifyContent: "space-between",
+    },
+    appBarShift: {
+      width: `calc(100% - ${drawerWidth}px)`,
+      marginLeft: drawerWidth,
+      transition: theme.transitions.create(["margin", "width"], {
+        easing: theme.transitions.easing.easeOut,
+        duration: theme.transitions.duration.enteringScreen,
+      }),
+    },
+    menuButton: {
+      marginRight: theme.spacing(2),
+    },
+    navBtns: {
+      display: "flex",
+      "& form": {
+        display: "inherit",
+        alignItems: "center",
+        "& > div": {
+          height: "-webkit-fill-available",
+        },
+      },
+    },
+  }));
+
+  const classes = useStyles();
+
   const [newPaletteName, setNewPaletteName] = useState("");
 
   let history = useHistory();
@@ -49,7 +85,7 @@ function NewPaletteFormNav({
   );
 
   return (
-    <>
+    <div className={classes.root}>
       <CssBaseline />
       <AppBar
         position="fixed"
@@ -69,8 +105,10 @@ function NewPaletteFormNav({
             <MenuIcon />
           </IconButton>
           <Typography variant="h6" noWrap>
-            Persistent drawer
+            Create A New Palette{" "}
           </Typography>
+        </Toolbar>
+        <div className={classes.navBtns}>
           <ValidatorForm onSubmit={onPaletteSave}>
             <TextValidator
               value={newPaletteName}
@@ -85,13 +123,13 @@ function NewPaletteFormNav({
             <Button type="submit" variant="contained" color="primary">
               Save
             </Button>
-            <Button onClick={(e) => history.push("/")} color="secondary">
-              Cancel
-            </Button>
           </ValidatorForm>
-        </Toolbar>
+          <Button onClick={(e) => history.push("/")} color="secondary">
+            Cancel
+          </Button>
+        </div>
       </AppBar>
-    </>
+    </div>
   );
 }
 
