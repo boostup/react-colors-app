@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { useHistory } from "react-router-dom";
 import clsx from "clsx";
 import CssBaseline from "@material-ui/core/CssBaseline";
@@ -8,9 +8,9 @@ import Typography from "@material-ui/core/Typography";
 import IconButton from "@material-ui/core/IconButton";
 import MenuIcon from "@material-ui/icons/Menu";
 import { Button } from "@material-ui/core";
-import { ValidatorForm, TextValidator } from "react-material-ui-form-validator";
-import { formatForId } from "./colorHelpers";
+
 import { makeStyles } from "@material-ui/core/styles";
+import PaletteMetaForm from "./PaletteMetaForm";
 
 function NewPaletteFormNav({
   open,
@@ -43,49 +43,17 @@ function NewPaletteFormNav({
     },
     navBtns: {
       display: "flex",
-      "& form": {
-        display: "inherit",
-        alignItems: "center",
-        "& > div": {
-          height: "-webkit-fill-available",
-        },
-        "& > button": {
-          marginLeft: theme.spacing(1),
-        },
-      },
+      marginRight: "1rem",
     },
   }));
 
   const classes = useStyles();
-
-  const [newPaletteName, setNewPaletteName] = useState("");
 
   let history = useHistory();
 
   const handleDrawerOpen = () => {
     setOpen(true);
   };
-
-  const onPaletteSave = () => {
-    const newPalette = {
-      paletteName: newPaletteName,
-      id: formatForId(newPaletteName),
-      colors: colors,
-    };
-    savePalette(newPalette);
-    history.push("/");
-  };
-
-  const onNewPaletteName = (e) => {
-    setNewPaletteName(e.target.value);
-  };
-
-  ValidatorForm.addValidationRule("isPaletteNameUnique", () =>
-    palettes.every(
-      ({ paletteName }) =>
-        paletteName.toLowerCase() !== newPaletteName.toLowerCase()
-    )
-  );
 
   return (
     <div className={classes.root}>
@@ -112,21 +80,11 @@ function NewPaletteFormNav({
           </Typography>
         </Toolbar>
         <div className={classes.navBtns}>
-          <ValidatorForm onSubmit={onPaletteSave}>
-            <TextValidator
-              value={newPaletteName}
-              label="Palette Name"
-              onChange={onNewPaletteName}
-              validators={["required", "isPaletteNameUnique"]}
-              errorMessages={[
-                "Enter a palette name",
-                "Enter a unique palette name.",
-              ]}
-            />
-            <Button type="submit" variant="contained" color="primary">
-              Save
-            </Button>
-          </ValidatorForm>
+          <PaletteMetaForm
+            colors={colors}
+            savePalette={savePalette}
+            palettes={palettes}
+          />
           <Button onClick={(e) => history.push("/")} color="secondary">
             Cancel
           </Button>
