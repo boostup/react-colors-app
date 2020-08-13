@@ -5,7 +5,6 @@ import useStyles from "./styles/DraggableColorBox";
 
 function DraggableColorBox({ color, name, onDeleteColorBox }) {
   const classes = useStyles();
-
   return (
     <div className={classes.root} style={{ backgroundColor: color }}>
       <div className={classes.boxContent}>
