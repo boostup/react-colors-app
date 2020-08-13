@@ -1,6 +1,6 @@
 import { makeStyles } from "@material-ui/core";
 
-export default makeStyles(() => ({
+export default makeStyles((theme) => ({
   root: {
     backgroundColor: "white",
     borderRadius: "5px",
@@ -24,5 +24,20 @@ export default makeStyles(() => ({
   miniColorBox: {
     height: "25%",
     width: "20%",
+  },
+  deleteIcon: {
+    height: "15%",
+    width: "14%",
+    maxWidth: "30px",
+    color: "white",
+    fontSize: "1rem",
+    padding: "6px",
+    position: "absolute",
+    backgroundColor: "#eb3d30",
+    top: 0,
+    right: "0",
+    "&:hover": {
+      backgroundColor: "#EA3426",
+    },
   },
 }));

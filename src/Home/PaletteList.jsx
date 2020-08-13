@@ -3,10 +3,12 @@ import { Link } from "react-router-dom";
 import MiniPalette from "./MiniPalette";
 import useStyles from "./PaletteListStyles";
 
-function PaletteList({ palettes, history }) {
+function PaletteList({ palettes, history, onPaletteDelete }) {
   const classes = useStyles();
   const goToPalette = (id) => history.push(`/palette/${id}`);
-
+  const deletePalette = (id) => {
+    onPaletteDelete(id);
+  };
   return (
     <div className={classes.root}>
       <div className={classes.container}>
@@ -18,8 +20,10 @@ function PaletteList({ palettes, history }) {
           {palettes.map((palette) => (
             <MiniPalette
               key={palette.id}
+              id={palette.id}
               {...palette}
               onPaletteClick={() => goToPalette(palette.id)}
+              onPaletteDelete={deletePalette}
             />
           ))}
         </div>
