@@ -1,6 +1,5 @@
 import React from "react";
 import useStyles from "./MiniPaletteStyles";
-import IconButton from "@material-ui/core/IconButton";
 import DeleteIcon from "@material-ui/icons/Delete";
 import PaletteName from "../shared/PaletteName";
 
@@ -10,7 +9,7 @@ function MiniPalette({
   emoji,
   colors,
   onPaletteClick,
-  onPaletteDelete,
+  openDialog,
 }) {
   const classes = useStyles();
   const miniColorBoxes = colors.map((color) => (
@@ -23,7 +22,7 @@ function MiniPalette({
 
   const onDelete = (e) => {
     e.stopPropagation();
-    onPaletteDelete(id);
+    openDialog(id);
   };
 
   return (
