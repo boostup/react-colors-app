@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { withStyles } from "@material-ui/styles";
 import Navbar from "./Navbar";
 import ColorBox from "./ColorBox";
-import PaletteFooter from "./PaletteFooter";
+import PaletteName from "./PaletteName";
 import styles from "./styles/Palette";
 
 function Palette(props) {
@@ -32,7 +32,7 @@ function Palette(props) {
         changeColorFormat={changeColorFormat}
       />
       <div className={classes.PaletteColors}>{colorBoxes}</div>
-      <PaletteFooter paletteName={paletteName} emoji={emoji} />
+      <PaletteName name={paletteName} emoji={emoji} />
     </div>
   );
 }

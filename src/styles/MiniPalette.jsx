@@ -18,21 +18,7 @@ export default {
     flexWrap: "wrap",
     alignContent: "flex-start",
   },
-  title: {
-    display: "flex",
-    justifyContent: "space-between",
-    alignItems: "center",
-    margin: "0",
-    color: "black",
-    paddingTop: "0.5rem",
-    fontSize: "1rem",
-    position: "relative",
-    fontWeight: "normal",
-  },
-  emoji: {
-    marginLeft: "0.5rem",
-    fontSize: "1.5rem",
-  },
+
   miniColorBox: {
     height: "25%",
     width: "20%",

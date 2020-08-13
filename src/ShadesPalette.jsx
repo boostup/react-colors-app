@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { withStyles } from "@material-ui/styles";
 import Navbar from "./Navbar";
 import ColorBox from "./ColorBox";
-import PaletteFooter from "./PaletteFooter";
+import PaletteName from "./PaletteName";
 import styles from "./styles/Palette";
 
 function ShadesPalette(props) {
@@ -41,7 +41,7 @@ function ShadesPalette(props) {
           </Link>
         </div>
       </div>
-      <PaletteFooter paletteName={palette.paletteName} emoji={palette.emoji} />
+      <PaletteName name={palette.paletteName} emoji={palette.emoji} />
     </div>
   );
 }
