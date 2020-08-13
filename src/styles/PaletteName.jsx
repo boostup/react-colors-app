@@ -8,6 +8,7 @@ export default {
     position: "relative",
     fontWeight: "normal",
     margin: "0 1rem",
+    height: " 4vh",
     "&.asTitle": {
       paddingTop: "0.5rem",
       justifyContent: "space-between",
