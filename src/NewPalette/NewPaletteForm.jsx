@@ -41,9 +41,10 @@ function NewPaletteForm({ savePalette, palettes, maxColors }) {
         colors={colors}
         setColors={setColors}
         drawerWidth={drawerWidth}
+        drawerHeaderJSSClass={classes.drawerHeader}
         axis="xy"
         onSortEnd={onDragColorBox}
-        drawerHeaderJSSClass={classes.drawerHeader}
+        distance={20}
       />
     </div>
   );
