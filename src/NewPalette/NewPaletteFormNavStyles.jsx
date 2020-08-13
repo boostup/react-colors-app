@@ -3,6 +3,9 @@ import { makeStyles } from "@material-ui/core";
 export default ({ drawerWidth }) => {
   return makeStyles((theme) => ({
     root: {},
+    hide: {
+      display: "none",
+    },
     appBar: {
       transition: theme.transitions.create(["margin", "width"], {
         easing: theme.transitions.easing.sharp,
