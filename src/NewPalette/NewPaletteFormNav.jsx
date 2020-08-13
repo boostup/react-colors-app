@@ -51,14 +51,14 @@ function NewPaletteFormNav({
           </Typography>
         </Toolbar>
         <div className={classes.navBtns}>
+          <Button onClick={(e) => history.push("/")} color="secondary">
+            Cancel
+          </Button>
           <PaletteMetaForm
             colors={colors}
             savePalette={savePalette}
             palettes={palettes}
           />
-          <Button onClick={(e) => history.push("/")} color="secondary">
-            Cancel
-          </Button>
         </div>
       </AppBar>
     </div>
