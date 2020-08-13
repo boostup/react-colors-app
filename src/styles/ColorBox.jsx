@@ -10,7 +10,6 @@ export default (props) => {
       display: "inline-block",
       position: "relative",
       cursor: "pointer",
-      marginBottom: "-3.5px",
       "&:hover button": {
         opacity: 1,
       },
