@@ -11,9 +11,10 @@ import { formatForId } from "./colorHelpers";
 import { Zoom } from "@material-ui/core";
 import { Picker as EmojiPicker } from "emoji-mart";
 import "emoji-mart/css/emoji-mart.css";
-import { withStyles } from "@material-ui/styles";
+import useStyles from "./styles/PaletteMetaForm";
 
-function FormDialog({ classes, savePalette, colors, palettes }) {
+function PaletteMetaForm({ savePalette, colors, palettes }) {
+  const classes = useStyles();
   const [newPaletteName, setNewPaletteName] = useState("");
   const [step, setStep] = useState("none");
 
@@ -109,12 +110,4 @@ function FormDialog({ classes, savePalette, colors, palettes }) {
   );
 }
 
-const styles = {
-  root: {
-    "& .emoji-mart .emoji-mart-emoji:focus": {
-      outline: "none",
-    },
-  },
-};
-
-export default withStyles(styles)(FormDialog);
+export default PaletteMetaForm;

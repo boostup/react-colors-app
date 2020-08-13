@@ -1,9 +1,9 @@
 import React from "react";
-import { withStyles } from "@material-ui/styles";
-import styles from "./styles/PaletteName";
+import useStyles from "./styles/PaletteName";
 
 function PaletteName(props) {
-  const { name, emoji, classes, asTitle } = props;
+  const classes = useStyles();
+  const { name, emoji, asTitle } = props;
 
   let rootClass = asTitle
     ? `${classes.PaletteName} asTitle`
@@ -17,4 +17,4 @@ function PaletteName(props) {
   );
 }
 
-export default withStyles(styles)(PaletteName);
+export default PaletteName;

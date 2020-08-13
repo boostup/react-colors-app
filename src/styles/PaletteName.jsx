@@ -1,4 +1,6 @@
-export default {
+import { makeStyles } from "@material-ui/core";
+
+export default makeStyles(() => ({
   PaletteName: {
     display: "flex",
     justifyContent: "flex-end",
@@ -21,4 +23,4 @@ export default {
   emoji: {
     fontSize: "1.5rem",
   },
-};
+}));

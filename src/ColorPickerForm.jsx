@@ -2,15 +2,10 @@ import React, { useState } from "react";
 import { ChromePicker } from "react-color";
 import { ValidatorForm, TextValidator } from "react-material-ui-form-validator";
 import { Button } from "@material-ui/core";
-import { withStyles } from "@material-ui/styles";
+import useStyles from "./styles/ColorPickerForm";
 
-function ColorPickerForm({
-  classes,
-  colors,
-  setColors,
-  isColorUnique,
-  paletteIsFull,
-}) {
+function ColorPickerForm({ colors, setColors, isColorUnique, paletteIsFull }) {
+  const classes = useStyles();
   const [currentColor, setCurrentColor] = useState("salmon");
   const [newColorName, setNewColorName] = useState("");
   const addNewColor = () => {
@@ -69,24 +64,4 @@ function ColorPickerForm({
   );
 }
 
-const styles = {
-  form: {
-    width: "100%",
-    "& .MuiTextField-root": {
-      width: "100%",
-      marginTop: "1rem",
-    },
-  },
-  colorPicker: {
-    width: "100% !important",
-    marginTop: "1.5rem",
-  },
-  addColorBtn: {
-    width: "100%",
-    padding: "1rem",
-    marginTop: "2rem",
-    fontSize: "2rem",
-  },
-};
-
-export default withStyles(styles)(ColorPickerForm);
+export default ColorPickerForm;

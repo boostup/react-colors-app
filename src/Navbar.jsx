@@ -5,18 +5,12 @@ import MenuItem from "@material-ui/core/MenuItem";
 import Snackbar from "@material-ui/core/Snackbar";
 import IconButton from "@material-ui/core/IconButton";
 import CloseIcon from "@material-ui/icons/Close";
-import { withStyles } from "@material-ui/styles";
-import styles from "./styles/Navbar";
+import useStyles from "./styles/Navbar";
 import Slider from "rc-slider";
 import "rc-slider/assets/index.css";
 
-function Navbar({
-  showLevelSlider,
-  level,
-  changeLevel,
-  changeColorFormat,
-  classes,
-}) {
+function Navbar({ showLevelSlider, level, changeLevel, changeColorFormat }) {
+  const classes = useStyles();
   const [colorFormat, setColorFormat] = useState("hex");
   const [snackbarOpen, setSnackbarOpen] = useState(false);
 
@@ -82,4 +76,4 @@ function Navbar({
   );
 }
 
-export default withStyles(styles)(Navbar);
+export default Navbar;

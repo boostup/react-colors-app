@@ -8,9 +8,8 @@ import Typography from "@material-ui/core/Typography";
 import IconButton from "@material-ui/core/IconButton";
 import MenuIcon from "@material-ui/icons/Menu";
 import { Button } from "@material-ui/core";
-
-import { makeStyles } from "@material-ui/core/styles";
 import PaletteMetaForm from "./PaletteMetaForm";
+import useStyles from "./styles/NewPaletteFormNav";
 
 function NewPaletteFormNav({
   open,
@@ -20,41 +19,11 @@ function NewPaletteFormNav({
   palettes,
   drawerWidth,
 }) {
-  const useStyles = makeStyles((theme) => ({
-    root: {},
-    appBar: {
-      transition: theme.transitions.create(["margin", "width"], {
-        easing: theme.transitions.easing.sharp,
-        duration: theme.transitions.duration.leavingScreen,
-      }),
-      flexDirection: "row",
-      justifyContent: "space-between",
-    },
-    appBarShift: {
-      width: `calc(100% - ${drawerWidth}px)`,
-      marginLeft: drawerWidth,
-      transition: theme.transitions.create(["margin", "width"], {
-        easing: theme.transitions.easing.easeOut,
-        duration: theme.transitions.duration.enteringScreen,
-      }),
-    },
-    menuButton: {
-      marginRight: theme.spacing(2),
-    },
-    navBtns: {
-      display: "flex",
-      marginRight: "1rem",
-    },
-  }));
-
-  const classes = useStyles();
-
+  const classes = useStyles({ drawerWidth });
   let history = useHistory();
-
   const handleDrawerOpen = () => {
     setOpen(true);
   };
-
   return (
     <div className={classes.root}>
       <CssBaseline />

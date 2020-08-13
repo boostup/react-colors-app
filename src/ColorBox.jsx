@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { withStyles } from "@material-ui/styles";
 import { CopyToClipboard } from "react-copy-to-clipboard";
-import styles from "./styles/ColorBox";
+import useStyles from "./styles/ColorBox";
 
-function ColorBox({ classes, name, background, moreURL, showMoreBtn }) {
+function ColorBox(props) {
+  const { name, background, moreURL, showMoreBtn } = props;
+  const classes = useStyles(props);
+  // console.log(classes);
   const [copied, setCopied] = useState(false);
 
   let copiedMessageTimeoutId = null;
@@ -49,4 +51,4 @@ function ColorBox({ classes, name, background, moreURL, showMoreBtn }) {
   );
 }
 
-export default withStyles(styles)(ColorBox);
+export default ColorBox;

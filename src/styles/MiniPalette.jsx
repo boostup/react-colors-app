@@ -1,4 +1,6 @@
-export default {
+import { makeStyles } from "@material-ui/core";
+
+export default makeStyles(() => ({
   root: {
     backgroundColor: "white",
     borderRadius: "5px",
@@ -23,4 +25,4 @@ export default {
     height: "25%",
     width: "20%",
   },
-};
+}));

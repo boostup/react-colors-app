@@ -1,4 +1,6 @@
-export default {
+import { makeStyles } from "@material-ui/core";
+
+export default makeStyles(() => ({
   Palette: {
     height: "100%",
     width: "100%",
@@ -37,4 +39,4 @@ export default {
     border: "none",
     opacity: "1",
   },
-};
+}));

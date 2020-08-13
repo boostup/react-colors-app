@@ -1,13 +1,12 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { withStyles } from "@material-ui/styles";
 import Navbar from "./Navbar";
 import ColorBox from "./ColorBox";
 import PaletteName from "./PaletteName";
-import styles from "./styles/Palette";
+import useStyles from "./styles/Palette";
 
-function ShadesPalette(props) {
-  const { colorId, palette, classes } = props;
+function ShadesPalette({ colorId, palette }) {
+  const classes = useStyles();
   const [colorFormat, setColorFormat] = useState("hex");
   const changeColorFormat = (value) => setColorFormat(value);
   const getShades = () => {
@@ -46,4 +45,4 @@ function ShadesPalette(props) {
   );
 }
 
-export default withStyles(styles)(ShadesPalette);
+export default ShadesPalette;

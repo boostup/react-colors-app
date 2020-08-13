@@ -1,12 +1,11 @@
 import React, { useState } from "react";
-import { withStyles } from "@material-ui/styles";
 import Navbar from "./Navbar";
 import ColorBox from "./ColorBox";
 import PaletteName from "./PaletteName";
-import styles from "./styles/Palette";
+import useStyles from "./styles/Palette";
 
 function Palette(props) {
-  const { classes } = props;
+  const classes = useStyles();
   const { colors, paletteName, emoji, id } = props.palette;
   const [level, setLevel] = useState(500);
   const changeLevel = (level) => setLevel(level);
@@ -37,4 +36,4 @@ function Palette(props) {
   );
 }
 
-export default withStyles(styles)(Palette);
+export default Palette;
