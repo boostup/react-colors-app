@@ -41,6 +41,7 @@ function PaletteMetaForm({ savePalette, colors, palettes }) {
       emoji: emoji.native,
     };
     savePalette(newPalette);
+    setStep("");
     history.push("/");
   };
 
