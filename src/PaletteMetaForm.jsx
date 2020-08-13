@@ -1,4 +1,4 @@
-import React, { useState, forwardRef } from "react";
+import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 import Button from "@material-ui/core/Button";
 import Dialog from "@material-ui/core/Dialog";
@@ -9,26 +9,35 @@ import DialogTitle from "@material-ui/core/DialogTitle";
 import { ValidatorForm, TextValidator } from "react-material-ui-form-validator";
 import { formatForId } from "./colorHelpers";
 import { Zoom } from "@material-ui/core";
+import { Picker as EmojiPicker } from "emoji-mart";
+import "emoji-mart/css/emoji-mart.css";
+import { withStyles } from "@material-ui/styles";
 
-export default function FormDialog({ savePalette, colors, palettes }) {
+function FormDialog({ classes, savePalette, colors, palettes }) {
   const [newPaletteName, setNewPaletteName] = useState("");
-  const [open, setOpen] = useState(false);
+  const [step, setStep] = useState("none");
 
   let history = useHistory();
 
   const handleClickOpen = () => {
-    setOpen(true);
+    setStep("paletteName");
   };
 
   const handleClose = () => {
-    setOpen(false);
+    setStep("none");
+    setNewPaletteName("");
   };
 
-  const onPaletteSave = () => {
+  const showEmojiPicker = () => {
+    setStep("emoji");
+  };
+
+  const onPaletteSave = (emoji) => {
     const newPalette = {
       paletteName: newPaletteName,
       id: formatForId(newPaletteName),
-      colors: colors,
+      colors,
+      emoji: emoji.native,
     };
     savePalette(newPalette);
     history.push("/");
@@ -51,17 +60,28 @@ export default function FormDialog({ savePalette, colors, palettes }) {
         Save
       </Button>
       <Dialog
-        open={open}
+        open={step === "emoji"}
+        className={classes.root}
+        onClose={handleClose}
+      >
+        <DialogTitle id="form-dialog-title">
+          Pick an Emoji for your Palette
+        </DialogTitle>
+        <EmojiPicker autoFocus onSelect={onPaletteSave} native />
+      </Dialog>
+      <Dialog
+        open={step === "paletteName"}
         onClose={handleClose}
         aria-labelledby="form-dialog-title"
         TransitionComponent={Zoom}
       >
         <DialogTitle id="form-dialog-title">Name your palette</DialogTitle>
-        <ValidatorForm onSubmit={onPaletteSave}>
+        <ValidatorForm onSubmit={showEmojiPicker}>
           <DialogContent>
             <DialogContentText>
               Please enter a name for your new palette. Note it must be unique.
             </DialogContentText>
+
             <TextValidator
               fullWidth
               autoFocus
@@ -88,3 +108,13 @@ export default function FormDialog({ savePalette, colors, palettes }) {
     </>
   );
 }
+
+const styles = {
+  root: {
+    "& .emoji-mart .emoji-mart-emoji:focus": {
+      outline: "none",
+    },
+  },
+};
+
+export default withStyles(styles)(FormDialog);
