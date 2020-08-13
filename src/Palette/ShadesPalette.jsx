@@ -3,10 +3,12 @@ import { Link } from "react-router-dom";
 import Navbar from "./Navbar";
 import ColorBox from "./ColorBox";
 import PaletteName from "../shared/PaletteName";
-import useStyles from "./PaletteStyles";
+import usePaletteStyles from "./PaletteStyles";
+import useShadesPaletteStyles from "./ShadesPaletteStyles";
 
 function ShadesPalette({ colorId, palette }) {
-  const classes = useStyles();
+  const paletteClasses = usePaletteStyles();
+  const classes = useShadesPaletteStyles();
   const [colorFormat, setColorFormat] = useState("hex");
   const changeColorFormat = (value) => setColorFormat(value);
   const getShades = () => {
@@ -30,9 +32,9 @@ function ShadesPalette({ colorId, palette }) {
     />
   ));
   return (
-    <div className={classes.Palette}>
+    <div className={paletteClasses.Palette}>
       <Navbar changeColorFormat={changeColorFormat} />
-      <div className={classes.PaletteColors}>
+      <div className={paletteClasses.PaletteColors}>
         {colorBoxes}
         <div className={classes.goBackContainer}>
           <Link to={`/palette/${palette.id}`}>
