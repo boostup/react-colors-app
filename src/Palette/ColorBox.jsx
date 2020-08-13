@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { CopyToClipboard } from "react-copy-to-clipboard";
-import useStyles from "./styles/ColorBox";
+import useStyles from "./ColorBoxStyles";
 
 function ColorBox(props) {
   const { name, background, moreURL, showMoreBtn } = props;

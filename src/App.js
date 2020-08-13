@@ -1,12 +1,12 @@
 import React, { useState } from "react";
-import seedPalettes from "./seedPalettes";
-import Palette from "./Palette";
-import { generatePalette } from "./colorHelpers";
+import seedPalettes from "./data/seedPalettes";
+import { generatePalette } from "./shared/colorHelpers";
 import "./App.css";
 import { Route, Switch } from "react-router-dom";
-import PaletteList from "./PaletteList";
-import ShadesPalette from "./ShadesPalette";
-import NewPaletteForm from "./NewPaletteForm";
+import Palette from "./Palette/Palette";
+import ShadesPalette from "./Palette/ShadesPalette";
+import PaletteList from "./Home/PaletteList";
+import NewPaletteForm from "./NewPalette/NewPaletteForm";
 
 function App() {
   const [palettes, setPalettes] = useState(seedPalettes.slice(6));

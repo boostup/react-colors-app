@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import MiniPalette from "./MiniPalette";
-import useStyles from "./styles/PaletteList";
+import useStyles from "./PaletteListStyles";
 
 function PaletteList({ palettes, history }) {
   const classes = useStyles();

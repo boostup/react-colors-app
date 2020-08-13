@@ -1,5 +1,5 @@
 import React from "react";
-import useStyles from "./styles/PaletteName";
+import useStyles from "./PaletteNameStyles";
 
 function PaletteName(props) {
   const classes = useStyles();

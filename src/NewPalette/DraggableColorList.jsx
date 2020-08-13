@@ -2,7 +2,7 @@ import React from "react";
 import { SortableContainer } from "react-sortable-hoc";
 import DraggableColorBox from "./DraggableColorBox";
 import clsx from "clsx";
-import useStyles from "./styles/DraggableColorList";
+import useStyles from "./DraggableColorListStyles";
 
 function DraggableColorList({
   open,

@@ -3,7 +3,7 @@ import arrayMove from "array-move";
 import DraggableColorList from "./DraggableColorList";
 import NewPaletteFormNav from "./NewPaletteFormNav";
 import NewPaletteFormDrawer from "./NewPaletteFormDrawer";
-import useStyles from "./styles/NewPaletteForm";
+import useStyles from "./NewPaletteFormStyles";
 
 const drawerWidth = 400;
 

@@ -1,7 +1,7 @@
 import React from "react";
 import { SortableElement } from "react-sortable-hoc";
 import DeleteIcon from "@material-ui/icons/Delete";
-import useStyles from "./styles/DraggableColorBox";
+import useStyles from "./DraggableColorBoxStyles";
 
 function DraggableColorBox({ color, name, onDeleteColorBox }) {
   const classes = useStyles();

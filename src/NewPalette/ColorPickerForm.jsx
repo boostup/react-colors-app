@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { ChromePicker } from "react-color";
 import { ValidatorForm, TextValidator } from "react-material-ui-form-validator";
 import { Button } from "@material-ui/core";
-import useStyles from "./styles/ColorPickerForm";
+import useStyles from "./ColorPickerFormStyles";
 
 function ColorPickerForm({ colors, setColors, isColorUnique, paletteIsFull }) {
   const classes = useStyles();

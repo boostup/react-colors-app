@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import Navbar from "./Navbar";
 import ColorBox from "./ColorBox";
-import PaletteName from "./PaletteName";
-import useStyles from "./styles/Palette";
+import PaletteName from "../shared/PaletteName";
+import useStyles from "./PaletteStyles";
 
 function ShadesPalette({ colorId, palette }) {
   const classes = useStyles();

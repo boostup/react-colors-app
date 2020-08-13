@@ -7,11 +7,11 @@ import DialogContent from "@material-ui/core/DialogContent";
 import DialogContentText from "@material-ui/core/DialogContentText";
 import DialogTitle from "@material-ui/core/DialogTitle";
 import { ValidatorForm, TextValidator } from "react-material-ui-form-validator";
-import { formatForId } from "./colorHelpers";
+import { formatForId } from "../shared/colorHelpers";
 import { Zoom } from "@material-ui/core";
 import { Picker as EmojiPicker } from "emoji-mart";
 import "emoji-mart/css/emoji-mart.css";
-import useStyles from "./styles/PaletteMetaForm";
+import useStyles from "./PaletteMetaFormStyles";
 
 function PaletteMetaForm({ savePalette, colors, palettes }) {
   const classes = useStyles();

@@ -6,7 +6,7 @@ import IconButton from "@material-ui/core/IconButton";
 import ChevronLeftIcon from "@material-ui/icons/ChevronLeft";
 import { Button } from "@material-ui/core";
 import ColorPickerForm from "./ColorPickerForm";
-import useStyles from "./styles/NewPaletteFormDrawer";
+import useStyles from "./NewPaletteFormDrawerStyles";
 
 function NewPaletteFormDrawer({
   colors,

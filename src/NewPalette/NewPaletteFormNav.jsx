@@ -9,7 +9,7 @@ import IconButton from "@material-ui/core/IconButton";
 import MenuIcon from "@material-ui/icons/Menu";
 import { Button } from "@material-ui/core";
 import PaletteMetaForm from "./PaletteMetaForm";
-import useStyles from "./styles/NewPaletteFormNav";
+import useStyles from "./NewPaletteFormNavStyles";
 
 function NewPaletteFormNav({
   open,

@@ -1,6 +1,6 @@
 import React from "react";
-import useStyles from "./styles/MiniPalette";
-import PaletteName from "./PaletteName";
+import useStyles from "./MiniPaletteStyles";
+import PaletteName from "../shared/PaletteName";
 
 function MiniPalette({ paletteName, emoji, colors, onPaletteClick }) {
   const classes = useStyles();
