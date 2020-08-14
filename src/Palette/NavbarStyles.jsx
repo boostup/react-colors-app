@@ -1,6 +1,6 @@
 import { makeStyles } from "@material-ui/core";
 
-export default makeStyles(() => ({
+export default makeStyles((theme) => ({
   Navbar: {
     display: "flex",
     alignItems: "center",
@@ -18,6 +18,9 @@ export default makeStyles(() => ({
     "& a": {
       textDecoration: "none",
       color: "black",
+    },
+    [theme.breakpoints.down("xs")]: {
+      display: "none",
     },
   },
   slider: {
@@ -38,6 +41,9 @@ export default makeStyles(() => ({
       width: "13px",
       height: "13px",
       marginTop: "-2px",
+    },
+    [theme.breakpoints.down("sm")]: {
+      width: "150px",
     },
   },
   selectContainer: {

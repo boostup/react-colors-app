@@ -1,5 +1,4 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import React, { useState, useCallback } from "react";
 import Dialog from "@material-ui/core/Dialog";
 import DialogTitle from "@material-ui/core/DialogTitle";
 import Avatar from "@material-ui/core/Avatar";
@@ -15,6 +14,7 @@ import { CSSTransition, TransitionGroup } from "react-transition-group";
 import MiniPalette from "./MiniPalette";
 import useStyles from "./PaletteListStyles";
 import useToggleState from "../shared/useToggleState";
+import { Button } from "@material-ui/core";
 
 function PaletteList({ palettes, history, onPaletteDelete }) {
   const classes = useStyles();
@@ -22,12 +22,18 @@ function PaletteList({ palettes, history, onPaletteDelete }) {
   const [openDeleteDialogToggle, setOpenDeleteDialogToggle] = useToggleState(
     false
   );
-  const goToPalette = (id) => history.push(`/palette/${id}`);
+  const goToPalette = useCallback((id) => history.push(`/palette/${id}`), [
+    history,
+  ]);
 
-  const onDialogOpen = (id) => {
-    setOpenDeleteDialogToggle(true);
-    setIdToDelete(id);
-  };
+  const onDialogOpen = useCallback(
+    (id) => {
+      setOpenDeleteDialogToggle(true);
+      setIdToDelete(id);
+    },
+    // eslint-disable-next-line
+    [setIdToDelete]
+  );
 
   const onDialogDeleteClicked = () => {
     onPaletteDelete(idToDelete);
@@ -43,8 +49,14 @@ function PaletteList({ palettes, history, onPaletteDelete }) {
     <div className={classes.root}>
       <div className={classes.container}>
         <nav className={classes.nav}>
-          <h1>React Colors</h1>
-          <Link to="/palette/new">Create Palette</Link>
+          <h1 className={classes.heading}>React Colors</h1>
+          <Button
+            variant="contained"
+            color="primary"
+            onClick={() => history.push("/palette/new")}
+          >
+            Create Palette
+          </Button>
         </nav>
         <TransitionGroup className={classes.palettes}>
           {palettes.map((palette) => (
@@ -52,7 +64,7 @@ function PaletteList({ palettes, history, onPaletteDelete }) {
               <MiniPalette
                 id={palette.id}
                 {...palette}
-                onPaletteClick={() => goToPalette(palette.id)}
+                onPaletteClick={goToPalette}
                 openDialog={onDialogOpen}
               />
             </CSSTransition>

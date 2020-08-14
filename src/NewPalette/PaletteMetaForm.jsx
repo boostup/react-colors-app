@@ -58,7 +58,7 @@ function PaletteMetaForm({ savePalette, colors, palettes }) {
 
   return (
     <>
-      <Button color="primary" onClick={handleClickOpen}>
+      <Button variant="contained" color="primary" onClick={handleClickOpen}>
         Save
       </Button>
       <Dialog

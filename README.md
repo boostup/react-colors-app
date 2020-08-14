@@ -1,3 +1,19 @@
+# Roadmap
+
+- have sliding route transitions ([see here](https://www.udemy.com/course/modern-react-bootcamp/learn/lecture/14384860#overview) @6:59)
+
+- drag-n-drop + saving new positions on every screen where there are color boxes
+
+- persist choice on HEX/RGBA/RGBA select across Palette and ShadesPalette screens
+
+- extract @global .fade-exit etc to App.css
+
+- extract delete confirmation dialog from PaletteList component into its own
+
+- ColorPickerForm.js -> second validator checks only on hex and not RGBA colors...must be handled
+
+---
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts

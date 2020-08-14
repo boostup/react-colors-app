@@ -30,7 +30,11 @@ function ColorPickerForm({ colors, setColors, isColorUnique, paletteIsFull }) {
         color={currentColor}
         onChangeComplete={(newColor) => setCurrentColor(newColor.hex)}
       />
-      <ValidatorForm onSubmit={addNewColor} className={classes.form}>
+      <ValidatorForm
+        onSubmit={addNewColor}
+        className={classes.form}
+        instantValidate={false}
+      >
         <TextValidator
           value={newColorName}
           onChange={onNewColorName}

@@ -1,16 +1,17 @@
 import React, { useState } from "react";
+import seedPalettes from "../data/seedPalettes";
 import arrayMove from "array-move";
 import DraggableColorList from "./DraggableColorList";
 import NewPaletteFormNav from "./NewPaletteFormNav";
 import NewPaletteFormDrawer from "./NewPaletteFormDrawer";
 import useStyles from "./NewPaletteFormStyles";
 
-const drawerWidth = 400;
+const drawerWidth = 320;
 
 function NewPaletteForm({ savePalette, palettes, maxColors }) {
   const classes = useStyles();
   const [open, setOpen] = useState(false);
-  const [colors, setColors] = useState(palettes[0].colors);
+  const [colors, setColors] = useState(seedPalettes[0].colors);
   const onDragColorBox = ({ oldIndex, newIndex }) => {
     setColors((colors) => arrayMove(colors, oldIndex, newIndex));
   };

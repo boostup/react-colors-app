@@ -3,7 +3,7 @@ import chroma from "chroma-js";
 import { makeStyles } from "@material-ui/core";
 
 export default (props) => {
-  return makeStyles(() => ({
+  return makeStyles((theme) => ({
     ColorBox: {
       width: "20%",
       height: () => (props.doubleHeight ? "50%" : "25%"),
@@ -12,6 +12,18 @@ export default (props) => {
       cursor: "pointer",
       "&:hover button": {
         opacity: 1,
+      },
+      [theme.breakpoints.down("lg")]: {
+        width: "25%",
+        height: () => (props.doubleHeight ? "33.3333%" : "20%"),
+      },
+      [theme.breakpoints.down("md")]: {
+        width: "50%",
+        height: () => (props.doubleHeight ? "20%" : "10%"),
+      },
+      [theme.breakpoints.down("xs")]: {
+        width: "100%",
+        height: () => (props.doubleHeight ? "10%" : "5%"),
       },
     },
     colorName: {

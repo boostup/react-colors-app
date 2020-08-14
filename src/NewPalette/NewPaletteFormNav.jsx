@@ -47,11 +47,15 @@ function NewPaletteFormNav({
             <OpenDrawerIcon />
           </IconButton>
           <Typography variant="h6" noWrap>
-            Create A New Palette{" "}
+            Create A Palette
           </Typography>
         </Toolbar>
         <div className={classes.navBtns}>
-          <Button onClick={(e) => history.push("/")} color="secondary">
+          <Button
+            variant="contained"
+            onClick={(e) => history.push("/")}
+            color="secondary"
+          >
             Cancel
           </Button>
           <PaletteMetaForm

@@ -1,4 +1,5 @@
 import React from "react";
+import seedPalettes from "../data/seedPalettes";
 import Drawer from "@material-ui/core/Drawer";
 import Typography from "@material-ui/core/Typography";
 import Divider from "@material-ui/core/Divider";
@@ -26,7 +27,7 @@ function NewPaletteFormDrawer({
   const clearColors = () => setColors([]);
 
   const addRandomColor = () => {
-    const allColors = palettes.map((p) => p.colors).flat();
+    const allColors = seedPalettes.map((p) => p.colors).flat();
     var rand = Math.floor(Math.random() * allColors.length);
     const randColor = allColors[rand];
     if (!isColorUnique(randColor.name)) return addRandomColor();

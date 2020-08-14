@@ -1,4 +1,8 @@
-.page {
+.page,
+.page-enter,
+.page-exit,
+.page-enter-active,
+.page-exit-active {
   height: 100vh;
   position: fixed;
   width: 100%;
