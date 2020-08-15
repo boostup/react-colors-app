@@ -6,17 +6,15 @@ export default makeStyles(
       width: "100%",
       "& .MuiTextField-root": {
         width: "100%",
-        marginTop: "1rem",
       },
     },
     colorPicker: {
       width: "100% !important",
-      marginTop: "1.5rem",
     },
     addColorBtn: {
       width: "100%",
       padding: "1rem",
-      marginTop: "2rem",
+      marginTop: "1rem",
       fontSize: "2rem",
     },
   }),

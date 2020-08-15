@@ -10,7 +10,7 @@ const drawerWidth = 320;
 
 function NewPaletteForm({ savePalette, palettes, maxColors }) {
   const classes = useStyles();
-  const [open, setOpen] = useState(false);
+  const [open, setOpen] = useState(true);
   const [colors, setColors] = useState(seedPalettes[0].colors);
   const onDragColorBox = ({ oldIndex, newIndex }) => {
     setColors((colors) => arrayMove(colors, oldIndex, newIndex));
@@ -27,7 +27,6 @@ function NewPaletteForm({ savePalette, palettes, maxColors }) {
         drawerWidth={drawerWidth}
       />
       <NewPaletteFormDrawer
-        palettes={palettes}
         colors={colors}
         setColors={setColors}
         maxColors={maxColors}

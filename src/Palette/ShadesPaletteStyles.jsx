@@ -1,7 +1,7 @@
 import { makeStyles } from "@material-ui/core";
 
 export default makeStyles(
-  (theme) => ({
+  () => ({
     goBackContainer: {
       backgroundColor: "black",
       height: "50%",
@@ -10,18 +10,6 @@ export default makeStyles(
       position: "relative",
       cursor: "pointer",
       marginBottom: "-3.5px",
-      [theme.breakpoints.down("lg")]: {
-        width: "75%",
-        height: "33.3333%",
-      },
-      [theme.breakpoints.down("md")]: {
-        width: "50%",
-        height: "20%",
-      },
-      [theme.breakpoints.down("xs")]: {
-        width: "100%",
-        height: "10%",
-      },
     },
     goBackButton: {
       width: "100px",

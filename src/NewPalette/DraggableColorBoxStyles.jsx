@@ -4,8 +4,8 @@ import { makeStyles } from "@material-ui/core";
 
 export default makeStyles((theme) => ({
   root: {
-    width: "20%",
-    height: "25%",
+    width: "25%",
+    height: "20%",
     display: "inline-block",
     position: "relative",
     cursor: "pointer",
@@ -13,18 +13,6 @@ export default makeStyles((theme) => ({
       color: "white",
       transform: "scale(1.5)",
       transition: "all 0.3s ease-out",
-    },
-    [theme.breakpoints.down("lg")]: {
-      width: "25%",
-      height: "20%",
-    },
-    [theme.breakpoints.down("md")]: {
-      width: "50%",
-      height: "10%",
-    },
-    [theme.breakpoints.down("sm")]: {
-      width: "100%",
-      height: "5%",
     },
   },
   boxContent: {

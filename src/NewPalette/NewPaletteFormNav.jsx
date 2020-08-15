@@ -54,7 +54,7 @@ function NewPaletteFormNav({
             onClick={(e) => history.push("/")}
             color="secondary"
           >
-            Cancel
+            GO BACK
           </Button>
           <PaletteMetaForm
             colors={colors}

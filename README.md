@@ -2,9 +2,9 @@
 
 ## Notes
 
-- This app is not meant to be used on a smartphone. Targeted screensizes for this app are those that web designers typically use, which means anything from medium to extra large screens. Nevertheless, a quick attemps was made to have a responsive design which fits small and extra-small screens, however without satisfaction. It was therefore considered that this app really isn't suitable for small screens.
+- Targeted screen sizes for this app are those that web designers typically use, which means anything from medium to extra large screens. Nevertheless, a quick attemps was made to have a responsive design which fits small and extra-small screens, however without satisfaction. It was therefore considered that this app really isn't suitable for small screens such as smartphones.
 
-- The PaletteList (the homescreen) Navbar has not been worked for responsive design, so the "Create Palette" button will sometimes, depending on the screen width not be aligned vertically with the palettes below
+- The PaletteList (the home screen) Navbar has not been worked for responsive design, so the "Create Palette" button will sometimes, depending on the screen width, not be aligned vertically with the palettes columns below
 
 ## New functionalities
 
@@ -18,6 +18,8 @@
 
 - [ ] When deleting a color while composing a new palette, have on-exit fade transitions like those on the PaletteList (Home screen)
 
+- [ ] When clicking on "GO BACK" button on the new palette screen, a dialog should ask the user to confirm that all changes will be lost
+
 ## Refactoring && Cleaning up
 
 - [ ] App.js could get smaller by :
@@ -29,6 +31,10 @@
 * [ ] extract "delete confirmation dialog" from PaletteList component into its own component
 
 ## Bugs
+
+- [ ] The "Save new palette" dialog is hidden behind tablets touch keyboards How can I get it to scroll into the viewport when keyboard slides up ?
+
+- [ ] Make the COPY hover buttons touch friendly
 
 - [x] Must add a default Route to avoid displaying blank pages when unaccounted parameters are passed in the app's URL, i.e. :
 

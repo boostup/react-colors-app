@@ -5,6 +5,9 @@ export default ({ drawerWidth }) => {
     (theme) => ({
       root: {
         height: "calc(100vh - 64px)",
+        [theme.breakpoints.down("md")]: {
+          height: "calc(100vh - 139px)",
+        },
         display: "flex",
         flexWrap: "wrap",
         alignContent: "flex-start",

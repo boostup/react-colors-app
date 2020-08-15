@@ -6,9 +6,6 @@ export default ({ drawerWidth }) => {
       root: {
         "& .MuiToolbar-gutters": {
           padding: 0,
-          "& .MuiTypography-h6": {
-            fontSize: "1rem",
-          },
         },
       },
       hide: {
@@ -34,18 +31,12 @@ export default ({ drawerWidth }) => {
       },
       menuButton: {
         marginRight: theme.spacing(2),
-        [theme.breakpoints.down("xs")]: {
-          marginRight: 0,
-        },
       },
       navBtns: {
         display: "flex",
         justifyContent: "space-evenly",
         "& button": {
-          [theme.breakpoints.down("xs")]: {
-            fontSize: "0.75rem",
-            width: "1rem",
-          },
+          margin: "0 0.5rem",
         },
       },
     }),

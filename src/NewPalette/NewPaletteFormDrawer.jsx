@@ -1,7 +1,6 @@
 import React from "react";
 import seedPalettes from "../data/seedPalettes";
 import Drawer from "@material-ui/core/Drawer";
-import Typography from "@material-ui/core/Typography";
 import Divider from "@material-ui/core/Divider";
 import IconButton from "@material-ui/core/IconButton";
 import ChevronLeftIcon from "@material-ui/icons/ChevronLeft";
@@ -15,7 +14,6 @@ function NewPaletteFormDrawer({
   maxColors,
   open,
   setOpen,
-  palettes,
   drawerWidth,
   drawerHeaderJSSClass,
 }) {
@@ -57,7 +55,6 @@ function NewPaletteFormDrawer({
       </div>
       <Divider />
       <div className={classes.container}>
-        <Typography variant="h4">Design Your Palette</Typography>
         <div className={classes.buttons}>
           <Button variant="contained" color="secondary" onClick={clearColors}>
             Clear Palette

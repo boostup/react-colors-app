@@ -6,6 +6,7 @@ export default ({ drawerWidth }) => {
       drawer: {
         width: drawerWidth,
         flexShrink: 0,
+        height: "100vh",
       },
       drawerPaper: {
         width: drawerWidth,
@@ -14,20 +15,10 @@ export default ({ drawerWidth }) => {
         width: "90%",
         height: "100%",
         margin: "0 auto",
-        "& h4": {
-          textAlign: "center",
-          marginTop: "1rem",
-        },
       },
       buttons: {
+        padding: "1rem 0",
         width: "100%",
-        display: "inherit",
-        flexDirection: "row",
-        marginTop: "1rem",
-        "& button": {
-          fontSize: "0.9rem",
-          width: "50%",
-        },
       },
     }),
     //Giving name to the generated HTML style tag : for debugging purpose only ;)

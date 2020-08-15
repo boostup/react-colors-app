@@ -14,18 +14,6 @@ export default (props) => {
         "&:hover button": {
           opacity: 1,
         },
-        [theme.breakpoints.down("lg")]: {
-          width: "25%",
-          height: () => (props.doubleHeight ? "33.3333%" : "20%"),
-        },
-        [theme.breakpoints.down("md")]: {
-          width: "50%",
-          height: () => (props.doubleHeight ? "20%" : "10%"),
-        },
-        [theme.breakpoints.down("xs")]: {
-          width: "100%",
-          height: () => (props.doubleHeight ? "10%" : "5%"),
-        },
       },
       colorName: {
         color: () =>
