@@ -6,8 +6,10 @@ import Snackbar from "@material-ui/core/Snackbar";
 import IconButton from "@material-ui/core/IconButton";
 import CloseIcon from "@material-ui/icons/Close";
 import useStyles from "./NavbarStyles";
-import Slider from "rc-slider";
-import "rc-slider/assets/index.css";
+// import Slider from "rc-slider";
+// import "rc-slider/assets/index.css";
+
+import Slider from "@material-ui/core/Slider";
 
 function Navbar({ showLevelSlider, level, changeLevel, changeColorFormat }) {
   const classes = useStyles();
@@ -28,15 +30,16 @@ function Navbar({ showLevelSlider, level, changeLevel, changeColorFormat }) {
         <Link to="/">react colors</Link>
       </div>
       {showLevelSlider && (
-        <div>
-          <span>Level: {level}</span>
+        <div className={classes.levelAndSliderContainer}>
+          <span className={classes.level}>Level: {level}</span>
           <div className={classes.slider}>
             <Slider
-              defaultValue={level}
+              value={level}
               min={100}
               max={900}
               step={100}
-              onAfterChange={changeLevel}
+              marks
+              onChange={changeLevel}
             />
           </div>
         </div>

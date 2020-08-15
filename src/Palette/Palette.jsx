@@ -8,7 +8,7 @@ function Palette(props) {
   const classes = useStyles();
   const { colors, paletteName, emoji, id } = props.palette;
   const [level, setLevel] = useState(500);
-  const changeLevel = (level) => setLevel(level);
+  const changeLevel = (e, level) => setLevel(level);
   const [colorFormat, setColorFormat] = useState("hex");
   const changeColorFormat = (value) => setColorFormat(value);
 

@@ -5,12 +5,11 @@ export default makeStyles(
     Navbar: {
       display: "flex",
       alignItems: "center",
-      justifyContent: "flex-start",
+      justifyContent: "space-between",
       height: "6vh",
     },
     logo: {
-      marginRight: "50px",
-      padding: "0 13px",
+      padding: theme.spacing(0, 1),
       fontSize: "22px",
       backgroundColor: "#eceff1",
       height: "100%",
@@ -24,33 +23,47 @@ export default makeStyles(
         display: "none",
       },
     },
+    levelAndSliderContainer: {
+      display: "flex",
+      alignItems: "center",
+      [theme.breakpoints.down("xs")]: {
+        flexDirection: "column",
+        padding: theme.spacing(0, 1),
+      },
+    },
+    level: {
+      padding: "0 8px",
+      [theme.breakpoints.down("xs")]: {
+        position: "relative",
+        top: "12px",
+        left: "-39px",
+      },
+    },
     slider: {
       width: "340px",
-      margin: "0 10px",
       display: "inline-block",
-      "& .rc-slider-track": {
-        backgroundColor: "transparent",
+      "& .MuiSlider-rail, .MuiSlider-track": {
+        height: "7px",
+        color: "#e9e9e9",
+        borderRadius: "6px",
       },
-      "& .rc-slider-rail": {
-        height: "8px",
-      },
-      "& .rc-slider-handle, .rc-slider-handle:active, .rc-slider-handle:focus, .rc-slider-handle:hover": {
-        backgroundColor: "green",
-        outline: "none",
-        border: "2px solid green",
-        boxShadow: "none",
-        width: "13px",
-        height: "13px",
+      "& .MuiSlider-thumb": {
+        color: "green",
         marginTop: "-2px",
+      },
+      "& .MuiSlider-track": {
+        transition: "width 0.5s ease-in",
+      },
+      "& .MuiSlider-mark, .MuiSlider-markActive": {
+        color: "#aadcb6",
+        backgroundColor: "#aadcb6",
+        height: "6px",
       },
       [theme.breakpoints.down("sm")]: {
         width: "150px",
       },
     },
-    selectContainer: {
-      marginLeft: "auto",
-      marginRight: "1rem",
-    },
+    selectContainer: { padding: theme.spacing(0, 1) },
   }),
   //Giving name to the generated HTML style tag : for debugging purpose only ;)
   { name: "Navbar" }
