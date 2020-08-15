@@ -1,16 +1,20 @@
 # Roadmap
 
-- have sliding route transitions ([see here](https://www.udemy.com/course/modern-react-bootcamp/learn/lecture/14384860#overview) @6:59)
+- [ ] have sliding route transitions ([see here](https://www.udemy.com/course/modern-react-bootcamp/learn/lecture/14384860#overview) @6:59)
 
-- drag-n-drop + saving new positions on every screen where there are color boxes
+- [ ] drag-n-drop + saving new positions on every screen where there are color boxes
 
-- persist choice on HEX/RGBA/RGBA select across Palette and ShadesPalette screens
+- [ ] persist HEX/RGBA/RGBA select value across Palette and ShadesPalette screens
 
-- extract @global .fade-exit etc to App.css
+- [ ] extract @global .fade-exit etc to App.css
 
-- extract delete confirmation dialog from PaletteList component into its own
+- [ ] extract "delete confirmation dialog" from PaletteList component into its own component
 
-- ColorPickerForm.js -> second validator checks only on hex and not RGBA colors...must be handled
+- [ ] ColorPickerForm.js -> second validator checks only on hex and not RGB|RGBA colors...must be handled
+
+- [ ] When deleting a color while composing a new palette, have on-exit fade transitions like those on the PaletteList (Home screen)
+
+- [x] Is it by design that the JSS of every colorbox being displayed generates a duplicate `<style>` tag in the head html tag ? Yes, it seems to be part of the makeStyles function from material-ui.
 
 ---
 
