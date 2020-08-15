@@ -26,7 +26,6 @@ function NewPaletteFormNav({
   };
   return (
     <div className={classes.root}>
-      <CssBaseline />
       <AppBar
         position="fixed"
         color="default"
