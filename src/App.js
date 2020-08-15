@@ -85,6 +85,18 @@ function App() {
                   </Page>
                 )}
               />
+              {/* CatchAll route */}
+              <Route
+                render={(routeProps) => (
+                  <Page>
+                    <PaletteList
+                      palettes={palettes}
+                      onPaletteDelete={deletePalette}
+                      {...routeProps}
+                    />
+                  </Page>
+                )}
+              />
             </Switch>
           </CSSTransition>
         </TransitionGroup>

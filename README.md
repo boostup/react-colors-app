@@ -1,20 +1,41 @@
 # Roadmap
 
-- [ ] have sliding route transitions ([see here](https://www.udemy.com/course/modern-react-bootcamp/learn/lecture/14384860#overview) @6:59)
+## Notes
 
-- [ ] drag-n-drop + saving new positions on every screen where there are color boxes
+- This app is not meant to be used on a smartphone. Targeted screensizes for this app are those that web designers typically use, which means anything from medium to extra large screens. Nevertheless, a quick attemps was made to have a responsive design which fits small and extra-small screens, however without satisfaction. It was therefore considered that this app really isn't suitable for small screens.
+
+- The PaletteList (the homescreen) Navbar has not been worked for responsive design, so the "Create Palette" button will sometimes, depending on the screen width not be aligned vertically with the palettes below
+
+## New functionalities
+
+- [ ] have sliding (instead of fading) route transitions ([see here for starting with this](https://www.udemy.com/course/modern-react-bootcamp/learn/lecture/14384860#overview) @6:59)
+
+- [ ] drag-n-drop + saving new positions on every screen where there are color boxes (be careful with style file being wrapped in "props" when using D-n-D lib, see [this commit](https://github.com/boostup/react-colors-app/commit/eec11eb1580535a8adda9aaf0db05f9e1b995f15) for fix)
 
 - [ ] persist HEX/RGBA/RGBA select value across Palette and ShadesPalette screens
-
-- [ ] extract @global .fade-exit etc to App.css
-
-- [ ] extract "delete confirmation dialog" from PaletteList component into its own component
 
 - [ ] ColorPickerForm.js -> second validator checks only on hex and not RGB|RGBA colors...must be handled
 
 - [ ] When deleting a color while composing a new palette, have on-exit fade transitions like those on the PaletteList (Home screen)
 
-- [x] Is it by design that the JSS of every colorbox being displayed generates a duplicate `<style>` tag in the head html tag ? Yes, it seems to be part of the makeStyles function from material-ui.
+## Refactoring && Cleaning up
+
+- [ ] App.js could get smaller by :
+  - extracting route definitions
+  - extracting the data handling with a combination of useContext + useReducer + localStorage ([see this repo where this was achieved](https://github.com/boostup/react-hooks-mui-todo-app/blob/master/src/contexts/todos.context.js))
+
+* [ ] extract @global .fade-exit currently found in PaletteListStyles.jsx to App.css
+
+* [ ] extract "delete confirmation dialog" from PaletteList component into its own component
+
+## Bugs
+
+- [x] Must add a default Route to avoid displaying blank pages when unaccounted parameters are passed in the app's URL, i.e. :
+
+  - http://localhost:3000/react-colors-app/sfsdfsdf/sdfsdfsd
+  - or http://localhost:3000/react-colors-app/sfsdfsdf/sdfsdfsd/asdasd
+
+- [x] ~~Is it by design that the JSS of every colorbox being displayed generates a duplicate `<style>` tag in the head html tag ?~~ Yes, it seems to be part of the makeStyles function from material-ui.
 
 ---
 
