@@ -62,8 +62,8 @@ function PaletteMetaForm({ savePalette, colors, palettes }) {
         Save
       </Button>
       <Dialog
+        className={classes.emojiDialog}
         open={step === "emoji"}
-        className={classes.root}
         onClose={handleClose}
       >
         <DialogTitle id="form-dialog-title">
@@ -72,7 +72,9 @@ function PaletteMetaForm({ savePalette, colors, palettes }) {
         <EmojiPicker autoFocus onSelect={onPaletteSave} native />
       </Dialog>
       <Dialog
+        className={classes.paletteNameDialog}
         open={step === "paletteName"}
+        onEntered={(dialogEl) => dialogEl.querySelector("input").focus()}
         onClose={handleClose}
         aria-labelledby="form-dialog-title"
         TransitionComponent={Zoom}
@@ -86,7 +88,6 @@ function PaletteMetaForm({ savePalette, colors, palettes }) {
 
             <TextValidator
               fullWidth
-              autoFocus
               value={newPaletteName}
               label="Palette Name"
               onChange={onNewPaletteName}
