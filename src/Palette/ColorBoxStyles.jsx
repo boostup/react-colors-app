@@ -103,9 +103,12 @@ export default (props) => {
       showCopiedMsg: {
         opacity: "1",
         transform: "scale(1)",
-        zIndex: "25",
+        zIndex: theme.zIndex.tooltip,
         transition: "transform 0.4s ease-in-out",
         transitionDelay: "0.3s",
+        [theme.breakpoints.down("md")]: {
+          transitionDelay: "0.7s",
+        },
       },
       copiedOverlay: {
         opacity: "0",
@@ -118,7 +121,7 @@ export default (props) => {
       showCopiedOverlay: {
         opacity: "1",
         transform: "scale(50)",
-        zIndex: "10",
+        zIndex: theme.zIndex.modal,
         position: "absolute",
       },
     }),

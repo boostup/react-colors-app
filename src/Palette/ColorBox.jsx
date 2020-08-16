@@ -10,15 +10,16 @@ function ColorBox(props) {
   // console.log(classes);
   const [copied, setCopied] = useState(false);
 
-  let copiedMessageTimeoutId = null;
-
   const onCopyState = () => {
     setCopied(true);
-    copiedMessageTimeoutId = setTimeout(() => setCopied(false), 1500);
   };
+
   useEffect(() => {
-    return clearTimeout(copiedMessageTimeoutId);
-  }, [copiedMessageTimeoutId]);
+    if (copied) {
+      let id = setTimeout(() => setCopied(false), 1500);
+      return () => clearTimeout(id);
+    }
+  }, [copied]);
 
   return (
     <CopyToClipboard text={background} onCopy={onCopyState}>
@@ -34,7 +35,7 @@ function ColorBox(props) {
             [classes.showCopiedMsg]: copied,
           })}
         >
-          <h1>Copied !</h1>
+          <h1>Copied</h1>
           <p className={classes.copiedColorString}>{background}</p>
         </div>
         <div>
