@@ -9,8 +9,8 @@ import DialogTitle from "@material-ui/core/DialogTitle";
 import { ValidatorForm, TextValidator } from "react-material-ui-form-validator";
 import { formatForId } from "../shared/colorHelpers";
 import { Zoom } from "@material-ui/core";
-import { Picker as EmojiPicker } from "emoji-mart";
-import "emoji-mart/css/emoji-mart.css";
+import { Picker as EmojiPicker } from "mr-emoji/dist-es/index.js";
+import "mr-emoji/css/emoji-mart.css";
 import useStyles from "./PaletteMetaFormStyles";
 
 function PaletteMetaForm({ savePalette, colors, palettes }) {
@@ -69,7 +69,7 @@ function PaletteMetaForm({ savePalette, colors, palettes }) {
         <DialogTitle id="form-dialog-title">
           Pick an Emoji for your Palette
         </DialogTitle>
-        <EmojiPicker autoFocus onSelect={onPaletteSave} native />
+        <EmojiPicker autoFocus onClick={onPaletteSave} native />
       </Dialog>
       <Dialog
         className={classes.paletteNameDialog}
