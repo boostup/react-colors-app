@@ -1,5 +1,7 @@
 [Live Demo](https://boostup.github.io/react-colors-app/)
 
+![Color Palette Composition App](public/images/color-palettes-app-demo.gif)
+
 ---
 
 # Roadmap
